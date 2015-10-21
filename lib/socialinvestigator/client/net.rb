@@ -179,7 +179,7 @@ module Socialinvestigator
           if ip_address
             data.remember :ip_address, ip_address
             begin
-              data.remember :server_name, Dnsruby::Resolv.getname( ip_address )
+              data.remember :server_name, Dnsruby::Resolv.getname( ip_address.to_s )
             rescue Dnsruby::NXDomain
               # Couldn't do the reverse lookup
             end
